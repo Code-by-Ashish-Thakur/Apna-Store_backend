@@ -6,12 +6,12 @@ const Stripe = require('stripe')
 
 const app = express()
 app.use(cors())
-app.use(express.json({ limit: "10mb" }))
+app.use(express.json({ limit: "50mb" }))
 
 
 const PORT = process.env.PORT || 8080
 //mongodb connection
-console.log(process.env.MONGODB_URL)
+// console.log(process.env.MONGODB_URL)
 mongoose.set('strictQuery', false);
 mongoose.connect(process.env.MONGODB_URL)
   .then(() => console.log("connected to databse"))
@@ -135,7 +135,7 @@ app.get("/product", async (req, res) => {
 
 
 /*****payment getWay */
-console.log(process.env.STRIPE_SECRET_KEY)
+// console.log(process.env.STRIPE_SECRET_KEY)
 
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
